@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Company.css' %}">
+    <title>Company</title>
+      <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="{% static '/css/all.min.css' %}">
+  <style>
+   #bl{
+      color:green;
+   } 
+   
+   </style>
+</head>
+<body>
+<a href="/">Home</a>
+
+    <div id="Heading">
+   
+    </div>
+
+    <div class="container">
+         <h1>Enter Company Data</h1>
+    {{msg}}
+        <form action="/company/" method='post'>
+        {% csrf_token %}
+
+            <div class="form-group">
+            <label for="Jobid">JOB ID</label>
+            <input type="text" name="jobid" class="form-control" Required>
+             </div>
+             <div class="form-group">
+             <label for="Job Profile">Job Profile</label>
+          <input type="text" name="jobprofile" class="form-control">
+
+           </div>
+            <div class="form-group">
+            <label for="Salary">Salary</label>
+            <input type="text" name="salary" class="form-control">
+
+            </div>
+            <div class="form-group">
+            <label for="EmployID"> Employ ID</label>
+            <input type="text" name="employid" class="form-control"></h3>
+            </div>
+            <input type="Submit" id="btn" class="btn btn-danger">
+        </form>
+    {% if messages %}
+    {% for message in messages  %}
+    <span id="bl">{{message}}</span>
+    {% endfor %}
+    {% endif %}
+    </div>
+    </div>
+     <script  src="{% static 'js/jquery.min.js' %}"></script>
+  
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/all.min.js' %}"></script>
+</body>
+</html>

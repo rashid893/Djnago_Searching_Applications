@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Home</title>
+      <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="{% static '/css/all.min.css' %}">
+  <style>
+  #btn{
+      margin:20px;
+     padding:11px; }
+      </style>
+</head>
+<body>
+<body>
+<div class="container">
+<ul class="nav justify-content-center">
+<li class="nav-item"><a  class="nav-link"href="#">Service</a></li>
+<li class="nav-item"><a class="nav-link" href="#">About</a></li>
+<li class="nav-item"><a  class="nav-link" href="#"> Download</a></li>
+
+</ul>
+
+    <div id="">
+        <form action="/employdata">
+            <input type="Submit" value="Employee" id="btn" class="btn btn-danger ">
+        </form>
+    </div>
+
+    <div id="Company">
+        <form action="/company">
+            <input type="Submit" value="Company" id="btn"class="btn btn-primary">
+        </form>
+    </div>
+
+    <div id="SearchingEmp">
+        <form action="/searching_emp">
+            <input type="Submit" value="Searching Employee Information" id="btn"class="btn btn-success">
+        </form>
+    </div>
+
+    <div >
+        <form action="/searching_comp">
+            <input type="Submit" value="Searching Company Information" id="btn"class="btn btn-primary">
+        </form>
+
+    </div>
+    </div>
+
+    
+ <script  src="{% static 'js/jquery.min.js' %}"></script>
+  
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/all.min.js' %}"></script>
+</body>
+</html>

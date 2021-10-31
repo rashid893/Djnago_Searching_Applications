@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee</title>
+      <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="{% static '/css/all.min.css' %}">
+  <style>
+  #bl{
+      color:green;
+      font-weight:bold;
+   } </style>
+</head>
+<body>
+<a href="/">Home</a>
+
+    <div id="Heading">
+   
+    </div>
+
+    <div class="container">
+         <h1>Enter Employ Data</h1>
+   <span id="bl">{{msg}}</span>
+        <form action="/employdata/" method="post">
+       
+        {% csrf_token %}
+            <div class="form-group">
+            <label for="Empid">Employ ID</label>
+            <input type="text" name="empid" class="form-control" Required >
+            </div>
+            <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" name="name" class="form-control" Required >
+            </div>
+            <div class="form-group">
+            <label for="Age">Age</label>
+            <input type="text" name="age" class="form-control">
+            </div>
+            <div class="form-group">
+            <label for="phone"> Phone</label>
+            <input type="text" name="phone" class="form-control">
+            </div>
+            <div class="form-group">
+            <label for="city">Cicty</label>
+            <input type="text" name="city" class="form-control">
+            </div>
+            <input type="Submit" id="btn" class="btn btn-danger">
+        </form>
+        {% if messages %}
+      
+
+
+{% for message in messages %}
+      <span id="bl">{{ message }}</span>
+        {% endfor %}
+        {% endif %}
+
+    </div>
+     <script  src="{% static 'js/jquery.min.js' %}"></script>
+  
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/all.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Company Search</title>
+      <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="{% static '/css/all.min.css' %}">
+  <style>
+  .id{
+    margin-top:22px;
+    margin-left:0px;
+  }
+     
+     </style>
+</head>
+<body>
+<a href="/">Home</a>
+
+    <div class="container">
+        <form action="/compdata/" method='post'>
+        {% csrf_token %}
+        <div class="form-group">
+        <b><label for="Search"> Search</label><b>
+  <input type="text" class="form-control" placeholder="Search Your Data"name="data">&nbsp;<input type="Submit" class=" id btn btn-danger">
+            </div>
+        </form>
+     
+     <form action="/viewcompdata">
+        <input type="Submit" value="View Company Data" class="btn btn-success">
+     </form>
+ 
+      
+    <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+    <tr>
+       {% for data in info %}
+   
+<th scope="col"> JOBID</th>
+<th scope="col"> Job Profile</th>
+<th scope="col"> Salary</th>
+<th scope="col"> EmployID</th>
+       </tr>
+       <tr>
+   <td>{{data.jobid}}</td> 
+     <td>{{data.jobprofile}}</td> 
+      <td>{{data.salary}}</td> 
+       <td>{{data.employid}}</td> <br>
+    {% endfor %}
+    </tr>
+    </table>
+    </div>
+    <script  src="{% static 'js/jquery.min.js' %}"></script>
+  
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/all.min.js' %}"></script>
+</body>
+</html>
